@@ -7,6 +7,6 @@ namespace YogurtBank.Models
         Bachelor, 
         Masters, 
         PhD, 
-        Project
+        Project,
     }
 }

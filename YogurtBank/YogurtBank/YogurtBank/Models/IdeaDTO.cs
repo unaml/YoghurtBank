@@ -1,31 +1,67 @@
-using System.Collections.Generic;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace YogurtBank.Models
+{ 
 
-    public record IdeaDTO(string Id, Supervisor Creator, DateTime Posted, string Subject, string Description, int AmountOfCollaborators, bool Open, TimeSpan TimeToComplete, DateTime StartDate, IdeaType Type);
-
-    public record IdeaCreateDTO 
+    public record IdeaCreateDTO
     {
-        public string Id { get; set; }
-        public Supervisor Creator { get; set; }
-        public DateTime Posted { get; set; }
-        public string Subject { get; set; } 
+        public int CreatorId { get; init; }
+        [StringLength(100)]
+        public string Title { get; set; }
+        [StringLength(100)]
+        public string Subject { get; set; }
+        [StringLength(1200)]
         public string Description { get; set; }
         public int AmountOfCollaborators { get; set; }
         public bool Open { get; set; }
         public TimeSpan TimeToComplete { get; set; }
-        public DateTime StartDate { get; set; }
-        public IdeaType Type { get; set }
-
+        public DateTime? StartDate { get; set; }
+        public IdeaType Type { get; set; }
     }
 
-    public record IIdeaDetailsDTO();
+    public record IdeaUpdateDTO
+    {
+        public int Id { get; init; }
+        [StringLength(100)]
+        public string Title { get; set; }
+        [StringLength(100)]
+        public string Subject { get; set; }
+        [StringLength(1200)]
+        public string Description { get; set; }
+        public int AmountOfCollaborators { get; set; }
+        public bool Open { get; set; }
+        public TimeSpan TimeToComplete { get; set; }
+        public DateTime? StartDate { get; set; }
+        public IdeaType Type { get; set; }
+    }
 
+    public record IdeaDTO
+    {
+        public int Id { get; set; }
+        [StringLength(100)]
+        public string Title { get; set; }
+        [StringLength(100)]
+        public string Subject { get; set; }
+        public IdeaType Type { get; set; }
+    }
 
-    IdeaUpdateDTO
+    public record IdeaDetailsDTO
+    {
+        public int CreatorId { get; init; }
+        public int Id { get; set; }
+        [StringLength(100)]
+        public string Title { get; set; }
+        [StringLength(100)]
+        public string Subject { get; set; }
+        public DateTime Posted { get; init; }
+        [StringLength(1200)]
+        public string Description { get; set; }
+        public int AmountOfCollaborators { get; set; }
+        public bool Open { get; set; }
+        public TimeSpan TimeToComplete { get; set; }
+        public DateTime? StartDate { get; set; }
+    }
+}
 
-IdeaDetailDTO
-
-
-eneric; 

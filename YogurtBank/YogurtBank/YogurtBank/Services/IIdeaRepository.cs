@@ -6,7 +6,7 @@ namespace YogurtBank.Services
 {
     public interface IIdeaRepository
     {
-        //Task<UserDetailsDTO> FindUserAsync(int userId);
+        
 
     }
 }

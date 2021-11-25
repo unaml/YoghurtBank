@@ -5,16 +5,18 @@ namespace YogurtBank.Models
 {
     public class CollaborationRequest
     {
-        public Student requester { get; }
-        public Supervisor requestee { get; }
-        public string application { get; set; } 
-        public Status status { get; set; }
-    }
+        public Student Requester { get; init; }
+        public Supervisor Requestee { get; init; }
+        public Idea? Idea { get; init; }
+        public string Application { get; set; } 
+        public CollaborationRequestStatus Status { get; set; } = CollaborationRequestStatus.Waiting;
 
-    public enum Status {
-        Waiting, 
-        AprovedBySupervisor,
-        ApprovedByStudent, 
-        Declined,
+        public bool UpdateStatus(bool Approved, User Updater) 
+        {
+            //check if the user updating can make the update that is being attempted
+            //check if the attempted update is allowed
+
+            throw new NotImplementedException();
+        }
     }
 }
